@@ -1,4 +1,4 @@
-name: ccd_workshop
+name: cdd_workshop
 channels:
   - conda-forge
   - bioconda
@@ -141,4 +141,4 @@ dependencies:
   - zipp=3.4.0=py_0
   - zlib=1.2.11=h7795811_1010
   - zstd=1.4.8=hf387650_1
-prefix: /Users/willconnell/miniconda3/envs/ccd_workshop
+prefix: /Users/willconnell/miniconda3/envs/cdd_workshop
