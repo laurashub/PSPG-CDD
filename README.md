@@ -1,4 +1,6 @@
 # UCSF PSPG Computational Drug Discovery Workshop
+
+## Day 2
 In this workshop, you will use machine learning tools from scikit-learn (aka sklearn, http://scikit-learn.org) along with chemical fingerprinting and visualization tools from RDKit (http://rdkit.org) to predict the protein targets of cancer-related compounds. This workshop uses two Python scripts that are mostly complete. Your job is to fill in the missing sections and use these scripts to explore the protein (target) profiles of these cancer-related compounds. Your goal is to decide which compound is most applicable to your tumor for treatment.
 
 Work together in groups of 2 or 3 to complete the scripts and write up a short report. You should be able to do this in 2-3 PowerPoint slides. 
