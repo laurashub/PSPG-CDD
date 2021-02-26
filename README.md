@@ -1,5 +1,8 @@
 # UCSF PSPG Computational Drug Discovery Workshop
 
+- [Day 1](#day-1)
+- [Day 2](#day-2)
+
 ## Day 1
 The overall goal of this workshop is to apply machine learning methods to the DTP-NCI60 cancer drug screening dataset (https://dtp.cancer.gov/discovery_development/nci-60) to predict which compounds are most relevant for treatment given the tumor data provided to you.
 
