@@ -97,7 +97,7 @@ Create a new environment using the following code:
     
 Activate the environment and confirm:
 
-    conda activate ccd_workshop
+    conda activate cdd_workshop
     conda env list
 
 ### Start a Jupyter Notebook Session
