@@ -40,7 +40,7 @@ As a sanity measure along the way, you can always double-check your predictions 
 
 ### Script 1: "Predict" notebook
 
-`2017-01-24__PSPG_Workshop_Predict_Script_Fill_Jupy-Env.ipynb`
+`Predict_Script_Fill_Jupy-Env-STUDENTS.ipynb`
 
 This notebook takes in a file containing compounds (SMILES), along with two reference files containing data on molecules and targets from ChEMBL. It loads the data, converts the SMILES into in-memory representations of molecules using RDKIT, calculates chemical fingerprints from them, and trains a machine-learning method called a Naïve Bayesian Classifier to predict the drug targets of each compound.
 
@@ -50,7 +50,7 @@ Some parts of the script are incomplete, and these are marked with question mark
 
 ### Script 2: "Compare" notebook
 
-`2017-01-24__PSPG_Workshop_Compare_Script_Fill_Jupy-Env.ipynb`
+`Compare_Script_Fill_Jupy-Env-STUDENTS.ipynb`
 
 This notebook is used to explore why a prediction from the first script was made. It takes a file of drugs along with a target ID (e.g., “CHEMBL...”), and the two ChEMBL reference files as mentioned before. It uses RDKit to calculate the molecular similarity of all the ligands for the target you specified as compared to the drugs you gave it, and shows the most similar ligands.
 
@@ -59,11 +59,17 @@ http://www.rdkit.org/docs/GettingStartedInPython.html
 Do these ligands share common patterns, functional groups, “warheads”, etc with your compound? Which ones?
 
 ### Data
-`cancer_compounds.csv`
-This file can be opened in Excel, or a simple text editor, and contains the SMILES and names or IDs of various cancer-related compounds.
+`cancer_compounds.sample.csv`
+- This file can be opened in Excel, or a simple text editor, and contains the SMILES and names or IDs of various cancer-related compounds.
 
-`sample_cpds_to_compare.csv`
-This file can be opened in Excel, or a simple text editor, and likewise contains SMILES and IDs of several cancer compounds from the first data file. It demonstrates the file format for to be used for the query drugs as input to the "Compare" notebook.
+`candidate_compounds.sample.csv`
+- This file can be opened in Excel, or a simple text editor, and likewise contains SMILES and IDs of several cancer compounds from the first data file. It demonstrates the file format for to be used for the query drugs as input to the "Compare" notebook.
+
+`chembl_21_binding_molecules.csv.gz`
+- This file contains: Chembl_ID, SMILE, Fingerprint
+
+`chembl_21_binding_targets.csv`
+- This file contains: Target ID, UniProt Name, Molecule IDs, Description
 
 ### Setting up our Working Environment
 Let's create a directory for us to work from. This directory is where we will store all the files we plan to use.
@@ -89,16 +95,12 @@ Create a new environment using the following code:
     
 Activate the environment and confirm:
 
-    conda activate comp_drug_disc
+    conda activate ccd_workshop
     conda env list
 
 ### Start a Jupyter Notebook Session
-To test if everything is working, let's open up a jupyter notebook session. We'll import the modules we need to run our scripts correctly.
+To test if everything is working, let's open up a jupyter lab session. We'll import the modules we need to run our scripts correctly.
 
-   jupyter notebook --no-browser --port=8886
+    jupyter lab
 
-Open Chrome or Firefox and type the following into the url address:
-
-    localhost:8886
-
-This should bring up a jupyter notebook session that is being hosted from your local machine. Open the scripts provided and in the first cell try importing the modules we'll need to ensure all our packages are installed correctly.
+This should bring up a jupyter lab session that is being hosted from your local machine. Open the scripts provided and in the first cell try importing the modules we'll need to ensure all our packages are installed correctly.
