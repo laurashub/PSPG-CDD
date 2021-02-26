@@ -42,16 +42,16 @@ def map_target_identifiers(chembl_targ_f):
     used before generic uninterpretable Chembl_ID."""
     chid_to_targName = {}
     print('Mapping target chembl_IDs to human-readable Names...')
-    with gzip.open(chembl_targ_f, 'r') as fi:
-        reader = csv.reader(fi)
-        reader.next() # Iterate over file header
-        for chid, unid, cpd_assocs, tdesc in reader:
-            if unid != '':
-                chid_to_targName[chid] = unid
-            elif tdesc != '':
-                chid_to_targName[chid] = tdesc
-            else:
-                chid_to_targName[chid] = chid
+    fi = gzip.open(chembl_targ_f, 'rt')
+    reader = csv.reader(fi)
+    next(reader) # Iterate over file header
+    for chid, unid, cpd_assocs, tdesc in reader:
+        if unid != '':
+            chid_to_targName[chid] = unid
+        elif tdesc != '':
+            chid_to_targName[chid] = tdesc
+        else:
+            chid_to_targName[chid] = chid
     print('\tMapped {} chembl_IDs'.format(len(chid_to_targName)))
     print('')
     return chid_to_targName
