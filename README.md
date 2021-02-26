@@ -100,6 +100,10 @@ Activate the environment and confirm:
     conda activate cdd_workshop
     conda env list
 
+Make conda environment avaialable in jupyter kernel:
+
+    ipython kernel install --user --name=cdd_workshop
+
 ### Start a Jupyter Notebook Session
 To test if everything is working, let's open up a jupyter lab session. We'll import the modules we need to run our scripts correctly.
 
