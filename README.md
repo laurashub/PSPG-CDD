@@ -1,5 +1,7 @@
 # UCSF PSPG Computational Drug Discovery Workshop
 
+*Thank you to [@gtgask](https://github.com/gtgask) for putting this script together in 2017, moved to `python 3.9` in 2021 by [@wconnell](https://github.com/wconnell).*
+
 - [Day 1](#day-1)
 - [Day 2](#day-2)
 
