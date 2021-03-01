@@ -93,6 +93,7 @@ Now that we have the infrastructure in place, we need to create a new conda envi
 
 Create a new environment using the following code:
 
+    cd PSPG-CDD/
     conda env create -f environment.yml
     
 Activate the environment and confirm:
