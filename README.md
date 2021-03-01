@@ -79,7 +79,7 @@ Let's create a directory for us to work from. This directory is where we will st
 First clone this repository on your local computer:
     
     cd ~/Desktop/
-    git clone git@github.com:wconnell/PSPG-CDD.git
+    git clone https://github.com/wconnell/PSPG-CDD.git
 
 ### Install Miniconda and Additional Packages
 If you do not have Conda installed, install Miniconda from here: https://docs.conda.io/en/latest/miniconda.html
