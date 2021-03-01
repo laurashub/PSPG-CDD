@@ -98,7 +98,7 @@ Create a new environment using the following code:
     
 Activate the environment and confirm:
 
-    conda activate cdd_workshop
+    conda activate ccd_workshop
     conda env list
 
 Make conda environment avaialable in jupyter kernel:
