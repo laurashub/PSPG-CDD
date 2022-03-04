@@ -33,6 +33,13 @@ Some considerations to make while exploring these data that may help in preparin
 ## Day 2
 In this workshop, you will use machine learning tools from scikit-learn (aka sklearn, http://scikit-learn.org) along with chemical fingerprinting and visualization tools from RDKit (http://rdkit.org) to predict the protein targets of cancer-related compounds. This workshop uses two Python scripts that are mostly complete. Your job is to fill in the missing sections and use these scripts to explore the protein (target) profiles of these cancer-related compounds. Your goal is to decide which compound is most applicable to your tumor for treatment.
 
+Perform exploratory data analysis on your cell line to decide which compounds you would like to make target profile predictions for. You can load the NCI60 screening data as follows:
+
+```
+nci60 = pd.read_csv("PSPG-CDD/Workshop_Day2/DTP-NCI60_Dataset/dtp_nci60_compounds.csv.gz")
+nci60 = nci60.melt(id_vars=['PubChem_id', 'SMILES', 'drug_name'], var_name='cell_line', value_name='cpd_activity')
+```
+
 Work together in groups of 2 or 3 to complete the scripts and write up a short report. You should be able to do this in 2-3 PowerPoint slides. 
 
 Explain common substructures or functional groups (“warheads”) that are present in the compound you choose and the most similar ligands for the predicted off-targets of this compound. Do these off-targets explain the compounds efficacy, it’s side effects, or perhaps a repurposing opportunity? Is there an experiment you would recommend to better understand your compound? Explain why or why not. If an off-target, for what indication might it be used? Is this worth pursuing? Why or why not?
