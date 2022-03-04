@@ -36,7 +36,7 @@ In this workshop, you will use machine learning tools from scikit-learn (aka skl
 Perform exploratory data analysis on your cell line to decide which compounds you would like to make target profile predictions for. You can load the NCI60 screening data as follows:
 
 ```
-nci60 = pd.read_csv("PSPG-CDD/Workshop_Day2/DTP-NCI60_Dataset/dtp_nci60_compounds.csv.gz")
+nci60 = pd.read_csv("Workshop_Day2/DTP-NCI60_Dataset/dtp_nci60_compounds.csv.gz")
 nci60 = nci60.melt(id_vars=['PubChem_id', 'SMILES', 'drug_name'], var_name='cell_line', value_name='cpd_activity')
 ```
 
