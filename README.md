@@ -31,7 +31,7 @@ Some considerations to make while exploring these data that may help in preparin
 
 
 ## Day 2
-In this workshop, you will use machine learning tools from scikit-learn (aka sklearn, http://scikit-learn.org) along with chemical fingerprinting and visualization tools from RDKit (http://rdkit.org) to predict the protein targets of cancer-related compounds. This workshop uses two Python scripts that are mostly complete. Your job is to fill in the missing sections and use these scripts to explore the protein (target) profiles of these cancer-related compounds. Your goal is to decide which compound is most applicable to your tumor for treatment.
+In this workshop, you will use machine learning tools from scikit-learn (aka sklearn, http://scikit-learn.org) along with chemical fingerprinting and visualization tools from RDKit (http://rdkit.org) to predict the protein targets of cancer-related compounds. This workshop uses two Python scripts that are mostly complete. Your job is to fill in the missing sections and use these scripts to explore the protein (target) profiles of these cancer-related compounds. Your goal is to decide which compound(s) are most applicable to your tumor for treatment and then predict which protein targets these compounds will bind. Then you will compare the chemical structures of compounds you would like to investigate to the ligands (known binders) of a protein target you would like to investigate.
 
 Perform exploratory data analysis on your cell line to decide which compounds you would like to make target profile predictions for. You can load the NCI60 screening data as follows:
 
