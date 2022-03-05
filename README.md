@@ -14,7 +14,7 @@ In this workshop you will:
 *thank you to [@gtgask](https://github.com/gtgask) for putting this script together in 2017*
 *moved to `python 3.9` in 2021 by [@wconnell](https://github.com/wconnell)*
 
-## Day 1
+## Part 1
 The overall goal of this workshop is to apply machine learning methods to the DTP-NCI60 cancer drug screening dataset (https://dtp.cancer.gov/discovery_development/nci-60) to predict which compounds are most relevant for treatment given the tumor data provided to you. The NCI60 dataset consists of approximately 27k compounds screened against 60 individual cancer cell lines, originating from 10 tissue subtypes. 
 
 In order to determine which compounds are optimal for treatment, you will need to identify which **breast cancer cell line** is most relevant to your tumor. Before the second portion of the workshop, your goal is to explore the datasets provided by the NCI60 and to make a decision on which cell line(s) to focus on. You will share how you made your decision.
@@ -22,7 +22,7 @@ In order to determine which compounds are optimal for treatment, you will need t
 ### Exploring the Data
 The NCI's genomics and bioinformatics group has created a web portal consolidating all the data and metadata related to the screen that is publicly available and convenient to access. The sites homepage is located here: https://discover.nci.nih.gov/cellminer/home.do We encourage you to examine the upper blue tabs, especially the ones labeled "Data Set Metadata", "Cell Line Metadata", and "Download Data Sets"
 
-## Day 2
+## Part 2
 In this workshop, you will use machine learning tools from scikit-learn (aka sklearn, http://scikit-learn.org) along with chemical fingerprinting and visualization tools from RDKit (http://rdkit.org) to predict the protein targets of cancer-related compounds. This workshop uses two Python scripts that are mostly complete. Your job is to fill in the missing sections and use these scripts to explore the protein (target) profiles of these cancer-related compounds. Your goal is to decide which compound(s) are most applicable to your tumor for treatment and then predict which protein targets these compounds will bind. Then you will compare the chemical structures of compounds you would like to investigate to the ligands (known binders) of a protein target you would like to investigate.
 
 Perform exploratory data analysis on your cell line to decide which compounds you would like to make target profile predictions for.
