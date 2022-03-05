@@ -1,46 +1,31 @@
 # UCSF PSPG Computational Drug Discovery Workshop
+*Please read through the directions thoroughly and then move on to setting up your working environment.*
 
-*Thank you to [@gtgask](https://github.com/gtgask) for putting this script together in 2017, moved to `python 3.9` in 2021 by [@wconnell](https://github.com/wconnell).*
+In this workshop you will:
 
-- [Day 1](#day-1)
-- [Day 2](#day-2)
+1. Find a breast cancer cell line that is representative of your tumor sample from the NCI-60
+2. Analyze the NCI-60 screening dataset to select compounds that are potent against your cell line
+3. Build a model that uses chemical structure to predict protein target profiles
+4. Predict which protein targets your selected compounds bind
+5. Analyze ligand profiles of targets (known binders) that commonly appear in your predictions to identify important chemical substructures 
+
+---
+
+*thank you to [@gtgask](https://github.com/gtgask) for putting this script together in 2017*
+*moved to `python 3.9` in 2021 by [@wconnell](https://github.com/wconnell)*
 
 ## Day 1
-The overall goal of this workshop is to apply machine learning methods to the DTP-NCI60 cancer drug screening dataset (https://dtp.cancer.gov/discovery_development/nci-60) to predict which compounds are most relevant for treatment given the tumor data provided to you.
+The overall goal of this workshop is to apply machine learning methods to the DTP-NCI60 cancer drug screening dataset (https://dtp.cancer.gov/discovery_development/nci-60) to predict which compounds are most relevant for treatment given the tumor data provided to you. The NCI60 dataset consists of approximately 27k compounds screened against 60 individual cancer cell lines, originating from 10 tissue subtypes. 
 
-The NCI60 dataset consists of approximately 27k compounds screened against 60 individual cancer cell lines, originating from 10 tissue subtypes. 
-
-In order to determine which compounds are optimal for treatment, you will need to identify which cell line is most relevant to your tumor. Before the second portion of the workshop, your goal is to explore the datasets provided by the NCI60 and to make a decision on which cell line(s?) to focus on. 
-
-You will present 1-3 slides (max) on how you made your decision (eg. What you tried, what didn't work and why, and what you ended up doing) at the end of the workshop.
+In order to determine which compounds are optimal for treatment, you will need to identify which **breast cancer cell line** is most relevant to your tumor. Before the second portion of the workshop, your goal is to explore the datasets provided by the NCI60 and to make a decision on which cell line(s) to focus on. You will share how you made your decision.
 
 ### Exploring the Data
-The NCI's genomics and bioinformatics group has created a web portal consolidating all the data and metadata related to the screen that is publicly available and convenient to access.
-
-The sites homepage is located here: https://discover.nci.nih.gov/cellminer/home.do
-
-We encourage you to examine the upper blue tabs, especially the ones labeled "Data Set Metadata", "Cell Line Metadata", and "Download Data Sets"
-
-Some considerations to make while exploring these data that may help in preparing your slides might be:
-- What does the data convey in a general sense?
-- Is the data lacking anything crucial?
-- Is a particular data type more useful raw or pre-processed. If preprocessed, what did the     preprocessing do?
-- Is all the data there, but the labels provided require conversion to be of any use, and conversion would be such a huge time-suck that it’s kind of stupid this data exists the way it exists?
-- What data (tumor or NCI60) do we wish we had, in order to make something we tried work?
-- What are the properties of the cell line you chose?
-
+The NCI's genomics and bioinformatics group has created a web portal consolidating all the data and metadata related to the screen that is publicly available and convenient to access. The sites homepage is located here: https://discover.nci.nih.gov/cellminer/home.do We encourage you to examine the upper blue tabs, especially the ones labeled "Data Set Metadata", "Cell Line Metadata", and "Download Data Sets"
 
 ## Day 2
 In this workshop, you will use machine learning tools from scikit-learn (aka sklearn, http://scikit-learn.org) along with chemical fingerprinting and visualization tools from RDKit (http://rdkit.org) to predict the protein targets of cancer-related compounds. This workshop uses two Python scripts that are mostly complete. Your job is to fill in the missing sections and use these scripts to explore the protein (target) profiles of these cancer-related compounds. Your goal is to decide which compound(s) are most applicable to your tumor for treatment and then predict which protein targets these compounds will bind. Then you will compare the chemical structures of compounds you would like to investigate to the ligands (known binders) of a protein target you would like to investigate.
 
-Perform exploratory data analysis on your cell line to decide which compounds you would like to make target profile predictions for. You can load the NCI60 screening data as follows:
-
-```
-nci60 = pd.read_csv("Workshop_Day2/DTP-NCI60_Dataset/dtp_nci60_compounds.csv.gz")
-nci60 = nci60.melt(id_vars=['PubChem_id', 'SMILES', 'drug_name'], var_name='cell_line', value_name='cpd_activity')
-```
-
-Work together in groups of 2 or 3 to complete the scripts and write up a short report. You should be able to do this in 2-3 PowerPoint slides. 
+Perform exploratory data analysis on your cell line to decide which compounds you would like to make target profile predictions for.
 
 Explain common substructures or functional groups (“warheads”) that are present in the compound you choose and the most similar ligands for the predicted off-targets of this compound. Do these off-targets explain the compounds efficacy, it’s side effects, or perhaps a repurposing opportunity? Is there an experiment you would recommend to better understand your compound? Explain why or why not. If an off-target, for what indication might it be used? Is this worth pursuing? Why or why not?
 
@@ -70,15 +55,19 @@ Do these ligands share common patterns, functional groups, “warheads”, etc w
 ### Data
 `cancer_compounds.sample.csv`
 - This file can be opened in Excel, or a simple text editor, and contains the SMILES and names or IDs of various cancer-related compounds.
+- **It demonstrates the file format for to be used for the query drugs as input to the "Predict" notebook.**
 
 `candidate_compounds.sample.csv`
-- This file can be opened in Excel, or a simple text editor, and likewise contains SMILES and IDs of several cancer compounds from the first data file. It demonstrates the file format for to be used for the query drugs as input to the "Compare" notebook.
+- This file can be opened in Excel, or a simple text editor, and likewise contains SMILES and IDs of several cancer compounds from the first data file. 
+- **It demonstrates the file format for to be used for the query drugs as input to the "Compare" notebook.**
 
 `chembl_21_binding_molecules.csv.gz`
 - This file contains: Chembl_ID, SMILE, Fingerprint
+- **The code requires this file to be gzipped, but you can explore this file by unzipping into a new file: `gunzip -c chembl_21_binding_molecules.csv.gz > chembl_21_binding_molecules.csv`**
 
-`chembl_21_binding_targets.csv`
+`chembl_21_binding_targets.csv.gz`
 - This file contains: Target ID, UniProt Name, Molecule IDs, Description
+--**The code requires this file to be gzipped, but you can explore this file by unzipping into a new file: `gunzip -c chembl_21_binding_targets.csv.gz > chembl_21_binding_targets.csv`**
 
 ### Setting up our Working Environment
 Let's create a directory for us to work from. This directory is where we will store all the files we plan to use.
