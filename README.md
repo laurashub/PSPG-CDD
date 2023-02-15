@@ -12,8 +12,8 @@ In this workshop you will:
 
 ---
 
-*thank you to [@gtgask](https://github.com/gtgask) for putting this script together in 2017*
-*moved to `python 3.9` in 2021 by [@wconnell](https://github.com/wconnell)*
+*thank you to [@gtgask](https://github.com/gtgask) for putting this script together in 2017*  
+*moved to `python 3.9` in 2021 by [@wconnell](https://github.com/wconnell)*  
 *updated 2023 by [@laurashub](https://github.com/laurashub) and [@ghorbanimahdi73](https://github.com/ghorbanimahdi73)*
 
 The overall goal of this workship is (1) to gain experience with computational tools such as Python, conda, Jupyter notebooks, and (2) apply machine learning methods to the DTP-NCI60 cancer drug screening dataset (https://dtp.cancer.gov/discovery_development/nci-60) to predict which compounds are most relevant for treatment given the tumor data provided to you. The NCI60 dataset consists of approximately 27k compounds screened against 60 individual cancer cell lines, originating from 10 tissue subtypes. 
@@ -22,6 +22,11 @@ The overall goal of this workship is (1) to gain experience with computational t
 `cancer_compounds.sample.csv`
 - This file can be opened in Excel, or a simple text editor, and contains the SMILES and names or IDs of various cancer-related compounds.
 - **It demonstrates the file format for to be used for the query drugs as input to the "Predict" notebook.**
+
+`candidate_compounds.sample.csv`
+
+This file can be opened in Excel, or a simple text editor, and likewise contains SMILES and IDs of several cancer compounds from the first data file.
+- **It demonstrates the file format for to be used for the query drugs as input to the "Compare" notebook.**
 
 `chembl_21_binding_molecules.csv.gz`
 - This file contains: Chembl_ID, SMILE, Fingerprint
@@ -39,7 +44,7 @@ Let's create a directory for us to work from. This directory is where we will st
 
 First clone this repository on your local computer by opening a terminal window and typing:
     
-    cd ~/Desktop/
+    cd ~/Documents
     git clone git@github.com:laurashub/PSPG-CDD.git
 
 ### Install Miniconda and Additional Packages
@@ -97,6 +102,29 @@ http://scikit-learn.org/stable/modules/naive_bayes.html#multinomial-naive-bayes
 
 Some parts of the script are incomplete, and these are marked with question marks (?). It is your job to fill them in.
 
+### 2c. Neural network Classification notebook
+
+`PSPG245B-NeuralNetwork-Classification-STUDENTS.ipynb`
+
+This notebook is similar to the later part of 2b, except instead of using a neural network this notebook demonstrates how to setup and train a deep neural network using the PyTorch library. It details setting up the Datasets and DataLoaders, defining the model architecture, and evaluating performance. It also shows how to apply the model to get predictions for novel compounds to compare predictions between the two different classification methods.
+
+https://pytorch.org/docs/stable/index.html
+
+The script is largely complete, but there are directions to follow and questions to answer.
+
+
+### 2d. Ligand Comparison notebook
+
+`PSPG245B-Compare-Ligands-STUDENTS.ipynb`
+
+This notebook is used to explore why a prediction from the first script was made. It takes a file of drugs along with a target ID (e.g., “CHEMBL...”), and the two ChEMBL reference files as mentioned before. It uses RDKit to calculate the molecular similarity of all the ligands for the target you specified as compared to the drugs you gave it, and shows the most similar ligands.
+
+http://www.rdkit.org/docs/GettingStartedInPython.html
+
+Some parts of the script are incomplete, and these are marked with question marks (?). It is your job to fill them in.
+
+
+Do these ligands share common patterns, functional groups, “warheads”, etc with your compound? Which ones?
 
 
 
