@@ -63,7 +63,7 @@ def flatten_list(l):
     return flat_list
 
 
-def view_target_dist(preds_f, targ_limit=15, figsize=(30,20)):
+def view_target_dist(preds_f, targ_limit=15, figsize=(30,20), suffix=''):
     """Create bar chart of top predicted targets."""
     # Setup Figure
     fig = plt.figure(figsize=figsize)
@@ -82,7 +82,7 @@ def view_target_dist(preds_f, targ_limit=15, figsize=(30,20)):
     plt.yticks(fontsize=20)
     base_dir = os.getcwd()
     base_name = os.path.basename(preds_f).split('.')[0]
-    ofn = os.path.join(base_dir, base_name + '.png')
+    ofn = os.path.join(base_dir, base_name + f'_{suffix}'+'.png')
     plt.savefig(ofn)
     plt.show()
     return

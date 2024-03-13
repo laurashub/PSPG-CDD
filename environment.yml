@@ -17,4 +17,3 @@ dependencies:
   - pip:
       - notebook
       - tqdm
-prefix: /Users/laura/miniconda3/envs/cdd_workshop
